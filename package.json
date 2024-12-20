@@ -1,0 +1,43 @@
+{
+  "name": "tequila",
+  "version": "1.0.0",
+  "description": "tool support by tequila",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "deploy": "electron-builder -p always"
+  },
+  "author": "tequila",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "electron-updater": "^6.3.9"
+  },
+  "build": {
+    "appId": "com.tequila.app",
+    "productName": "Tequila Tool",
+    "directories": {
+      "output": "dist"
+    },
+    "publish": [{
+      "provider": "github",
+      "owner": "your-github-username",
+      "repo": "your-repo-name"
+    }],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Tequila Tool"
+    }
+  }
+}
